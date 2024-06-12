@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINE SELECT</title>
+    <link rel="stylesheet" href="profilestyle.css">
+</head>
+<body>
+    <header>
+        <h2>CINE SELECT</h2>
+        <P>"Your Personal Film Concierge"</P>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="profile">
+                <img src="default-profile-pic.jpg" alt="Profile Picture" class="profile-pic" id="profile-pic">
+                <span class="username" id="username">User</span>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="profile.html">Profile</a>
+                    <a href="settings.html">Settings</a>
+                    <a href="#" onclick="signOut()">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="" alt="Profile Picture" class="profile-pic-large" id="profile-pic-large">
+            <h1 class="username-large" id="username-large"></h1>
+        </div>
+        <div class="profile-details">
+            <h2>Contact Information</h2>
+            <ul>
+                <li>Email: <span id="email"></span></li>
+                <li>Phone: <span id="phone"></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+    <footer>
+        <p>&copy; Cine-Select @Sindhusrinivas. All rights reserved.</p>
+    </footer>
+    <script>
+        function signOut() {
+            window.location.href = "login.html";
+        }
+    </script>
+    <script src="profilescript.js"></script>
+</body>
+</html>
