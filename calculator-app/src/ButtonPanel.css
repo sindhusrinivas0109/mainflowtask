@@ -1,0 +1,7 @@
+/* src/ButtonPanel.css */
+.button-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Space out buttons evenly */
+  }
+  

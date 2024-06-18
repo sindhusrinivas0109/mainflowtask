@@ -1,0 +1,32 @@
+/* src/Button.css */
+.button {
+    width: calc(25% - 10px); /* Adjust width for spacing */
+    height: 60px;
+    font-size: 1.5rem;
+    border: 1px solid #000;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    margin: 5px; /* Add margin for spacing */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px #999; /* 3D effect */
+  }
+  
+  .button:hover {
+    background-color: rgba(240, 240, 240, 0.9);
+  }
+  
+  .button:active {
+    box-shadow: 0 2px #666;
+    transform: translateY(2px); /* Simulate button press */
+  }
+  
+  .operator-button {
+    background-color: #ff6666; /* Rose color */
+    color: white;
+  }
+  
+  .operator-button:hover {
+    background-color: #ff9999; /* Lighter rose color on hover */
+  }
+  
