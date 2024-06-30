@@ -1,0 +1,280 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 100%);
+  --body-color: hsl(0, 0%, 17%);
+  --container-color: hsla(0, 0%, 100%, 0.909);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Black Chancery', cursive;
+  --h2-font-size: 1.25rem;
+  --small-font-size: .813rem;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1120px) {
+  :root {
+    --h2-font-size: 1.5rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=================Home Button================*/
+.home-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--first-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: var(--body-font);
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.home-button:hover {
+  background-color: hsl(82, 60%, 38%);
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  padding-top: 10px;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== CARD ===============*/
+.container {
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  max-width: 1200px;
+}
+
+.card__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem; /* Reduced gap between cards */
+  justify-items: center;
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 260px; /* Adjust maximum width of each card */
+}
+
+.card__img {
+  width: 100%;
+  border-radius: 1.5rem;
+}
+
+.card__data {
+  background-color: rgba(255, 255, 255, 0.913); /* semi-transparent white */
+  padding: 1rem 1rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+  max-width: 180px; /* Adjust maximum width of card data */
+  max-height: 70px; /* Adjust maximum height of card data */
+  width: 100%;
+  height: 100%;
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  text-align: center; /* Center text */
+}
+
+.card__description {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: .25rem;
+}
+
+.card__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: .75rem;
+}
+
+.card__button {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--first-color);
+}
+
+.card__button:hover {
+  text-decoration: underline;
+}
+
+/* Naming animations in hover */
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .1s;
+}
+
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+  animation: remove-data 1s forwards;
+  bottom: -7rem; /* Return to original position when not hovered */
+  opacity: 0;
+  font-weight: 100;
+  text-align: center;
+}
+
+/* Card animation */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-7rem);
+  }
+  100% {
+    transform: translateY(.2rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
+/* Add these styles to your CSS */
+
+/* Modal styles */
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.modal__img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Close button styles */
+.close {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001; /* Make sure the close button is above the modal image */
+}
+
+.close:hover {
+  color: #bbb;
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .card__data {
+    width: 250px;
+    padding: 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 768px) {
+  .card__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1120px) {
+  .container {
+    height: 100vh;
+  }
+
+  .card__container {
+    grid-template-columns: repeat(5, 1fr); /* Adjust to 5 columns */
+  }
+  .card__img {
+    width: 260px; /* Adjust image width for better fit */
+  }
+  .card__data {
+    width: 260px; /* Adjust card data width */
+    padding-inline: 2.5rem;
+  }
+}
